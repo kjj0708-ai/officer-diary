@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0B1221;
+  color: #F8FAFC;
+  margin: 0;
+}
+
+.year-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #FFFFFF;
+  color: #2D2926;
+  transition: all 0.3s ease;
+}
+
+.year-card:hover {
+  background-color: #F8FAFC;
+  transform: translateY(-2px);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.thin-divider {
+  height: 1px;
+  background: rgba(45, 41, 38, 0.1);
+  width: 100%;
+}

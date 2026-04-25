@@ -1,0 +1,84 @@
+{
+  "entities": {
+    "DiaryEntry": {
+      "title": "Diary Entry",
+      "description": "A collection of diary entries for different years on a specific day-month.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user who owns this diary."
+        },
+        "dateId": {
+          "type": "string",
+          "description": "The month-day identifier (e.g., '04-23')."
+        },
+        "years": {
+          "type": "object",
+          "description": "Map of year to diary content string."
+        },
+        "images": {
+          "type": "object",
+          "description": "Map of year to list of image URLs."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp."
+        }
+      },
+      "required": ["userId", "dateId", "years"]
+    },
+    "CareerProfile": {
+      "title": "Career Profile",
+      "description": "Information about a public servant's career milestones.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "appointmentDate": {
+          "type": "string",
+          "format": "date",
+          "description": "신규 임용일"
+        },
+        "promotions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rank": { "type": "string", "description": "직급" },
+              "date": { "type": "string", "format": "date", "description": "승진일" }
+            }
+          }
+        },
+        "assignments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "department": { "type": "string", "description": "부서" },
+              "date": { "type": "string", "format": "date", "description": "인사발령일" },
+              "role": { "type": "string", "description": "직무" }
+            }
+          }
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["userId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/entries/{dateId}": {
+      "schema": "DiaryEntry",
+      "description": "Stores daily diary entries aggregated by year."
+    },
+    "/users/{userId}/career/profile": {
+      "schema": "CareerProfile",
+      "description": "Stores current career status and history."
+    }
+  }
+}

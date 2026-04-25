@@ -1,0 +1,6 @@
+{
+  "name": "공무원 업무수첩 (10년 다이어리)",
+  "description": "신규 임용일, 승진일, 인사발령 이력을 관리하고 10년간의 일기를 기록하는 공무원용 업무수첩 앱",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
